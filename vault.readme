@@ -1,0 +1,32 @@
+Imports:
+  ERC20: Imported from OpenZeppelin, this is the standard interface for ERC20 tokens.
+  Ownable: Imported from OpenZeppelin, this contract module provides basic authorization control functions, simplifying the implementation of user permissions.
+
+Contract Vault:
+  Inherits from Ownable to allow ownership and access control.
+
+State Variables:
+  collateralToken: The ERC20 token used as collateral.
+  yieldRate: The yield rate for the deposited collateral.
+  userBalances: A mapping from user addresses to their collateral balances.
+
+Events:
+  CollateralDeposited: Event emitted when a user deposits collateral.
+  YieldClaimed: Event emitted when a user claims their yield.
+
+Constructor:
+  Initializes the contract with the address of the collateral token and the yield rate.
+
+Function depositCollateral:
+  Allows users to deposit collateral into the vault.
+  Takes the amount of collateral to deposit as a parameter.
+  Transfers the collateral tokens from the user to the contract.
+  Updates the user's balance.
+  Emits an event for the deposit.
+
+Function claimYield:
+  Allows users to claim their yield rewards.
+  Ensures the user has deposited collateral.
+  Calculates the yield based on the user's balance and the vault's yield rate.
+  Transfers the yield in collateral tokens to the user.
+  Emits an event for the yield claim.

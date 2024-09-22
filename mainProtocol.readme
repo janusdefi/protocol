@@ -1,0 +1,14 @@
+Structure Vault: Holds information about each vault including the collateral token address, total collateral amount, and yield rate.
+
+Mappings:
+  vaults: Maps collateral token addresses to their corresponding vaults.
+  userBalances: Maps user addresses to their collateral balances.
+
+Constructor: Initializes the contract with the address of the Janus token.
+
+Events: Define events for creating vaults, depositing collateral, and claiming yield.
+
+Functions:
+  createVault: Allows the owner to create a new vault with a specified yield rate.
+  depositCollateral: Allows users to deposit collateral into a specified vault.
+  claimYield: Allows users to claim their yield rewards based on their collateral balance.

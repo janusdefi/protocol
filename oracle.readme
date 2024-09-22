@@ -1,0 +1,18 @@
+Imports:
+  AggregatorV3Interface: Imported from Chainlink contracts, this interface is used to interact with Chainlink Price Feeds.
+  Ownable: Imported from OpenZeppelin, this contract module provides basic authorization control functions, simplifying the implementation of user permissions.
+
+Contract Oracle:
+  Inherits from Ownable to allow ownership and access control.
+
+State Variable:
+  priceFeed: An instance of the AggregatorV3Interface that holds the reference to the Chainlink Price Feed contract.
+
+Constructor:
+  Takes an address _priceFeed as a parameter, which is the address of the Chainlink Price Feed contract.
+  Initializes the priceFeed state variable with the provided address.
+
+Function getPrice:
+  A public view function that returns the latest price fetched from the Chainlink Price Feed.
+  Calls latestRoundData on the priceFeed interface to get the most recent price data.
+  Extracts and returns the price from the fetched data.

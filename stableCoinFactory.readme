@@ -1,0 +1,35 @@
+Imports:
+  ERC20: Imported from OpenZeppelin, this is the standard interface for ERC20 tokens.
+  Ownable: Imported from OpenZeppelin, this contract module provides basic authorization control functions, simplifying the implementation of user permissions.
+
+Contract StablecoinFactory:
+  Inherits from Ownable to allow ownership and access control.
+
+Structure Stablecoin:
+  tokenAddress: Address of the stablecoin ERC20 token.
+  collateralToken: Address of the collateral token used to back the stablecoin.
+  targetPrice: Target price for the stablecoin.
+
+State Variables:
+  stablecoins: A mapping from stablecoin names to their corresponding Stablecoin structures.
+  janusMainProtocol: A reference to the JanusMainProtocol contract.
+
+Events:
+  StablecoinCreated: Event emitted when a new stablecoin is created.
+
+Constructor:
+  Initializes the contract with the address of the JanusMainProtocol contract.
+
+Function createStablecoin:
+  Allows the owner to create a new stablecoin.
+  Takes the stablecoin name, collateral token address, and target price as parameters.
+  Creates a new ERC20 token for the stablecoin.
+  Stores the stablecoin details in the mapping.
+  Emits an event for the creation of the stablecoin.
+
+Function mintStablecoin:
+  Allows users to mint new stablecoins by depositing collateral.
+  Takes the stablecoin name and amount of collateral to deposit as parameters.
+  Ensures the stablecoin exists.
+  Deposits the collateral into the JanusMainProtocol contract.
+  Transfers the newly minted stablecoins to the user.
